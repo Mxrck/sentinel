@@ -20,6 +20,8 @@
 
 namespace Cartalyst\Sentinel\Permissions;
 
+use Illuminate\Support\Str;
+
 trait PermissionsTrait
 {
     /**
@@ -173,7 +175,7 @@ trait PermissionsTrait
      */
     protected function extractClassPermissions($key)
     {
-        if (! str_contains($key, '@')) {
+        if (! Str::contains($key, '@')) {
             return (array) $key;
         }
 
@@ -202,7 +204,7 @@ trait PermissionsTrait
         }
 
         foreach ($prepared as $key => $value) {
-            if ((str_is($permission, $key) || str_is($key, $permission)) && $value === true) {
+            if ((Str::is($permission, $key) || Str::is($key, $permission)) && $value === true) {
                 return true;
             }
         }

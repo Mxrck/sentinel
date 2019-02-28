@@ -23,6 +23,7 @@ namespace Cartalyst\Sentinel\Activations;
 use Carbon\Carbon;
 use Cartalyst\Sentinel\Users\UserInterface;
 use Cartalyst\Support\Traits\RepositoryTrait;
+use Illuminate\Support\Str;
 
 class IlluminateActivationRepository implements ActivationRepositoryInterface
 {
@@ -190,6 +191,6 @@ class IlluminateActivationRepository implements ActivationRepositoryInterface
      */
     protected function generateActivationCode()
     {
-        return str_random(32);
+        return Str::random(32);
     }
 }

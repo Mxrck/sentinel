@@ -32,6 +32,7 @@ use Cartalyst\Sentinel\Users\UserRepositoryInterface;
 use Cartalyst\Support\Traits\EventTrait;
 use Closure;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 use RuntimeException;
 
@@ -858,7 +859,7 @@ class Sentinel
             return call_user_func_array([$users, $method], $parameters);
         }
 
-        if (starts_with($method, 'findUserBy')) {
+        if (Str::startsWith($method, 'findUserBy')) {
             $user = $this->getUserRepository();
 
             $method = 'findBy'.substr($method, 10);
@@ -866,7 +867,7 @@ class Sentinel
             return call_user_func_array([$user, $method], $parameters);
         }
 
-        if (starts_with($method, 'findRoleBy')) {
+        if (Str::startsWith($method, 'findRoleBy')) {
             $roles = $this->getRoleRepository();
 
             $method = 'findBy'.substr($method, 10);

@@ -24,6 +24,7 @@ use Carbon\Carbon;
 use Cartalyst\Sentinel\Users\UserInterface;
 use Cartalyst\Sentinel\Users\UserRepositoryInterface;
 use Cartalyst\Support\Traits\RepositoryTrait;
+use Illuminate\Support\Str;
 
 class IlluminateReminderRepository implements ReminderRepositoryInterface
 {
@@ -185,6 +186,6 @@ class IlluminateReminderRepository implements ReminderRepositoryInterface
      */
     protected function generateReminderCode()
     {
-        return str_random(32);
+        return Str::random(32);
     }
 }

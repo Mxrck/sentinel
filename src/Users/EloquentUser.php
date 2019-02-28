@@ -26,6 +26,7 @@ use Cartalyst\Sentinel\Persistences\PersistableInterface;
 use Cartalyst\Sentinel\Roles\RoleableInterface;
 use Cartalyst\Sentinel\Roles\RoleInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class EloquentUser extends Model implements RoleableInterface, PermissibleInterface, PersistableInterface, UserInterface
 {
@@ -225,7 +226,7 @@ class EloquentUser extends Model implements RoleableInterface, PermissibleInterf
      */
     public function generatePersistenceCode()
     {
-        return str_random(32);
+        return Str::random(32);
     }
 
     /**
