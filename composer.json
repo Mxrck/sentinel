@@ -18,15 +18,9 @@
             "homepage": "https://cartalyst.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/Mxrck/support"
-        }
-    ],
     "require": {
         "php": ">=5.4.0",
-        "cartalyst/support": "dev-laravel-5.8-support",
+        "mxrck/support": "~2.0",
         "illuminate/support": "~5.0"
     },
     "require-dev": {
